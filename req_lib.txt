@@ -1,0 +1,5 @@
+antiorm==1.2.1
+db==0.1.1
+Django==2.2.10
+pytz==2019.3
+sqlparse==0.3.1

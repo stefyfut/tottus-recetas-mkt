@@ -1,0 +1,536 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" / <meta
+        http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Administrador Recetas | Tottus 2020</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <style>
+        /* The side navigation menu */
+        .sidenav {
+            height: 100%;
+            /* 100% Full-height */
+            width: 250px;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Stay on top */
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 60px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /*border: 5px solid rgba(0, 0, 0, 0.516);*/
+            box-shadow: 3px 2px rgba(0, 0, 0, 0.167);
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 15px;
+            color: black;
+            display: block;
+            transition: 0.3s
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover,
+        .offcanvas a:focus {
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background-color: #81b426;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btnaccion {
+            background-color: #fff;
+            color: #000;
+            border-radius: 50px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+
+        #ico {
+            display: none;
+        }
+
+        input[type=text] {
+            width: 300px;
+            padding: 8px 18px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .myButton {
+            background-color: #81b426;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            padding: 5px 20px;
+            text-decoration: none;
+            border-radius: 34px;
+        }
+
+        .myButton:hover {
+            background-color: #81b426;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .desktop {
+            display: block !important;
+        }
+
+        .mobile {
+            display: none !important;
+        }
+
+        @media (max-width: 661px) {
+            .desktop {
+                display: none !important;
+            }
+
+            .mobile {
+                display: block;
+            }
+
+            .myButton {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+    <script>
+        $('.topnav a').click(function () {
+            $('#sideNavigation').style.width = "250px";
+            $("#main").style.marginLeft = "250px";
+        });
+
+        $('.closebtn').click(function () {
+            $('#sideNavigation').style.width = "0";
+            $("#main").style.marginLeft = "0";
+        });
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("sideNavigation").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("sideNavigation").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <style>
+        /* The Modal (background) */
+        .modal-replay {
+            display: block;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+
+        }
+
+        .material-icons {
+            outline: none;
+        }
+
+        /* Modal Content */
+        .modal-content-replay {
+            /*background-color: #fefefe;*/
+            margin: auto;
+            padding: 0px 40px 30px 50px;
+            border: 1px solid #888;
+            width: 30%;
+            text-align: center;
+            align-content: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border-radius: 34px;
+            outline: 0;
+        }
+
+        /* The Close Button */
+        .close-replay {
+            color: #aaaaaa;
+            text-align: right;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .close-replay:hover,
+        .close-replay:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn.btn-primary {
+            background-color: #81b426;
+            border: 0px;
+            width: 50%;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .margintopbtn {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1086px) {
+            .btn.btn-primary {
+                width: 100%;
+            }
+
+            .modal-content-replay {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 661px) {
+            .modal-content-replay {
+                height: 810px;
+                padding: 1px 30px 10px 30px;
+                width: 90%;
+                background-image: url('https://images.ctfassets.net/3l9pjbe21mqv/4tXpKs8auYRjHFALkcIicX/a8fae04b6c6f598185aefcaaeccb516a/popup-despensa-mobile.jpg');
+                background-repeat: no-repeat;
+            }
+
+            .modal-replay {
+                padding-top: 30px;
+            }
+
+            .btn.btn-primary {
+                width: 180px;
+            }
+
+            .myButton {
+                padding: 5px 100px;
+            }
+
+            input[type=text] {
+                width: 95%;
+            }
+
+            h3 {
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .modal-content-replay {
+                height: 820px;
+            }
+
+            .btn.btn-primary {
+                width: 180px;
+            }
+
+            .margintopbtn {
+                margin-top: 0px;
+            }
+        }
+    </style>
+    <script>
+        function abrirModalreplay() {
+            document.getElementById("modal_1").style.display = "block";
+        }
+        function abrirModalEditarreplay() {
+            document.getElementById("modal_2").style.display = "block";
+        }
+        function editarModalEditarreplay() {
+            document.getElementById("modal_2").style.display = "none";
+        }
+        function cerrarModalreplay() {
+            document.getElementById("modal_1").style.display = "none";
+        }
+    </script>
+</head>
+
+<body style="margin:0px">
+
+    <div id="modal_1" class="modal-replay" style="display: none;">
+        <div class="modal-content-replay">
+            <span class="close-replay" onclick="cerrarModalreplay()">&times;</span>
+            <div style="text-align: left;margin-bottom: 20px;font-family: Lato;">
+                {% block content %}
+                <form action="/home/noticias/" method="POST"> {% csrf_token %}
+                    <h3 style="color: #81b426;margin-bottom: 20px;">Nueva Noticia</h3>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12" style="margin-top:18px">
+                            <input type="hidden" id="idnoticia" name="idnoticia" value="{{idnoticia}}">
+                            <label>T&iacute;tulo Noticia</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <input type="text" id="titulo" name="titulo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12" style="margin-top:18px">
+                            <label>URL image</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <input type="text" id="urlimg" name="urlimg">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;margin-top: 20px;">
+                            <button type="submit" name="savenoticias" id="savenoticias" class="myButton">Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                {% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal_2" class="modal-replay modaleditar">
+        <div class="modal-content-replay">
+            <span class="close-replay" onclick="editarModalEditarreplay()">&times;</span>
+            <div style="text-align: left;margin-bottom: 20px;font-family: Lato;">
+                {% block content_2 %}
+                <form action="/home/noticias/" method="POST"> {% csrf_token %}
+                    <h3 style="color: #81b426;margin-bottom: 20px;">Editar Noticia</h3>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12" style="margin-top:18px">
+                            <input type="hidden" id="idrecertaedit" name="idrecetaedit" value="{{idrecetaedit}}">
+                            <label>T&iacute;tulo Noticia</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <input type="text" id="tituloedit" name="tituloedit" value="{{tituloedit}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12" style="margin-top:18px">
+                            <label>URL image</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <input type="text" id="urlimgedit" name="urlimgedit" value="{{urlimgedit}}">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;margin-top: 20px;">
+                            <button type="submit" name="editarnoticiasoficial" id="editarnoticiasoficial"
+                                class="myButton">Modificar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                {% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="sideNavigation" class="sidenav desktop" style="font-family: Lato;">
+        <a href="javascript:void(0)" class="closebtn mobile" onclick="closeNav()">&times;</a>
+        <a href="#"><strong>Bienvenid@ </strong>{{usuario}}</a>
+        <a href="#recetas">Recetas</a>
+        <a href="/home/noticias/{{usuario}}/">Noticias</a>
+        <a href="/home/consejos/{{usuario}}/">Consejos</a>
+        <a href="/home/productos/{{usuario}}/">Productos Destacados</a>
+        <a href="/login/"><strong>Cerrar sesión</strong></a>
+    </div>
+
+    <nav class="topnav mobile">
+        <a href="#" onclick="openNav()">
+            <svg width="30" height="30" id="icoOpen">
+                <path d="M0,5 30,5" stroke="#000" stroke-width="5" />
+                <path d="M0,14 30,14" stroke="#000" stroke-width="5" />
+                <path d="M0,23 30,23" stroke="#000" stroke-width="5" />
+            </svg>
+        </a>
+    </nav>
+
+    <div id="main">
+        <!-- Add all your websites page content here  -->
+    </div>
+    <style>
+        .main {
+            margin-left: 300px;
+            font-family: Lato;
+        }
+
+        .btnagregar {
+            text-align: right;
+            margin-top: 20px;
+            padding-right: 100px;
+        }
+
+        @media (max-width: 661px) {
+            .main {
+                margin-left: 50px;
+            }
+        }
+    </style>
+    <div id="recetas" class="main">
+        <h1 style="color: #81b426;">Noticias</h1>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="align-content: left;">
+                <a>{{mensaje}}</a>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 btnagregar">
+                <button type="submit" name="saverecetas" id="saverecetas" class="myButton"
+                    onclick="abrirModalreplay()">Agregar
+                    Noticias</button>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="selectAll">
+                                    <label for="selectAll"></label>
+                                </span>
+                            </th>
+                            <th>Nombre Noticia</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for instance in object_list %}
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                                    <label for="checkbox3"></label>
+                                </span>
+                            </td>
+                            <th>{{instance.nombre}}</th>
+                            <td>
+                                {% block editar %}
+                                <form action="/home/noticias/" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" id="user_id" name="user_id" value="{{usuario}}">
+                                    <input type='hidden' value="{{instance.idcodigo}}" name="ideditar" id="ideditar" />
+                                    <input type='hidden' value="{{instance.idcodigo}}" name="codigo" id="codigo" />
+                                    <button type="submit" id="editarrecetas" class="btn btn-primary"
+                                        style="width: 90px;" name="editarnoticias"><img width="20"
+                                            src="https://images.ctfassets.net/3l9pjbe21mqv/6Dju6cm1bqZV0trorTQnwp/e1191e3dfdf85cea0a987fdce3cf7be4/lapiz.png">Editar</button>
+                                    <button type="submit" class="btn btn-primary" id="deleterecetas"
+                                        style="width: 90px;" name="deletenoticias"><img width="20"
+                                            src="https://images.ctfassets.net/3l9pjbe21mqv/DkJVbfXYmuFogqUpMaVcZ/edfe75a6796cfab79b54b80c5a63ce63/papelero.png">Eliminar</button>
+                                </form>
+                                {% endblock %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var availableTags = '{{ none }}';
+            document.getElementById("modal_2").style.display = availableTags;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tottus-recetas-d237f",
+  "private_key_id": "7bf2c2e46b01ee18e88e87ff9279f0fe96c3266c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuQD+iiNbwnTt1\nm1t7c/rUht15TvEeuDz3g37T/guVTWBSImdnlszVZCig0Kw5C6XaoOmulZXGjZdy\njICnsZTdBeFKZHn17Z9I8dWL/U5WLQj4apee+8spV/o5tRbYJJHKFyTq7WuHkjV4\nm8lhBGSo3Jk5Cxc6yZsFr8yr3m3ylEl5FTxDALwPmUb2CLYyQHjmmHDIq1Gm8AOn\n3BrHRnjlCo1Re/lOUlzNd2bHHVWUdlZ6iwvId52qevtN7qR5ad2LQofe6WEurPHK\nzr8ZFnKkNIw0utH2cnhsb8YLqHhZ7TJkjHOfpPg9TdZ9K3CvVse3ba1K2be9915z\nDQrQLK5BAgMBAAECggEAIlx6D/eTBxzCWmU564TJ7DnyF5dZFfk30IlGK9C3gQgi\nm9+762IB33yiRGAR7ifdW1kK68oEoIRQXp7VSfxLQjCEJjLdGAF1PSGvPi1D0tuL\nns0KPCgj/nGiXtnWeOXxN9xLg+Ywo6nR0IhL9E00+lWSA30r5gRWhQ8POb8hiEmh\nTQGu9WiyCjlV/D8YIUvHmBVZY23mvYsvxNpVp8QHyBtCU8ov4yqvjKufWSfDsMMR\nZ7CZ2zAZCdfMgvPdRd9w8pkMCRgqCl3fbJsj8Xl5EkrDODrB8rxMDQBhmklCfuTo\nHacqpQH9dEmN6XYyUkv3V3qputQc3weydQAj/137rwKBgQDTa+Oh6gNqiFXbPwBd\nAJwKUPhwlB/JZquk2/aFa+1NjgIYSWhXwiXeQPWviX+nGiGmphjGO1uPl1MRaKqg\nlye7tamaNubfnik9Oc2dsqZL8t3EH0pA8gR0OiuUppcUANuErrtf76jr6jY48wid\nREWaypfa05qJmVJnP5kcOa7nXwKBgQDS/fiQXzx11GlXOJdKrRpYssjoHLWQNJTO\n1a4q/bfOJXr2sxENaOcUam6Zj73GZYQ3BTSvWsaxrXDIknJ+AsAj1ZPiZGNjfnhm\nC2HizUSC40zd8/F/uWsogpAg0kRf27DSpxA7SrWCbfPyEFG3vtA1pGJaIIbTMqDL\nzkRmj2ZuXwKBgQCkOn6MW5djvZvTv1Cs7bhIWzVhXe6DJ/nVCfipE3k2cUU3UG55\nHRsFVjiCrrA2QZo6NXOxKJKrK8UfFMrWDBSVPzwLyvH0aotmP+x0vz1mabXSjuvD\nHzxOfJE122In67KZkpGCqEvzVe/gtQjQASSAZTcoiI7Wq/7SrRhmUHiIyQKBgCV7\nDD7JTDo6Q4RE/0s6uOVszRe+kdpOHOkpOElWzOIH8nIEmVDig7oytfb9e97Uhcoo\nWJWV8Jn7j39x1HjiEDPNavnaj3VLMCQgfYEGqdb+fdcn0Iy56XlGyEesUo0cv6qM\nFuwRd3D2C1HC6GFVujLtQrNz979ozPunZqs5ah7NAoGAMbfeAWr/I+IJWOLtyBzl\nJ22bn5TE139e3W7zjExZdS/v7MMJ/eiE30J+a9r7y0PQ9UAtmD3vqtqIeKDvE98y\nqyVO4t1JLScvz2f14ZpiYhR9awlG8K/nwhDyG/4HoZDGXZEYLIYtqYvT2BbPqdjd\nz4n4gYB4GPbD4J3ScLQxLw0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-un36q@tottus-recetas-d237f.iam.gserviceaccount.com",
+  "client_id": "114392422818593490158",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-un36q%40tottus-recetas-d237f.iam.gserviceaccount.com"
+}
